@@ -17,4 +17,14 @@ jobs:
           version: 1.1.10
           virtualenvs-create: true
       - name: Pypi Publish
-        run: poetry publish --no-interaction -vvv --build --username ${{secrets.PYPI_USER}} --password ${{secrets.PYPI_PASSWORD}}
+        env:
+          PYPI_USER: ${{ secrets.PYPI_USER }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          ls - l
+          echo 'Building my package'
+          poetry build
+          echo 'finished build time to publish'
+          echo 'started publishing'
+          poetry publish --username $PYPI_USER --password $PYPI_PASSWORD
+          echo 'module published successfully install now through pip and check'
