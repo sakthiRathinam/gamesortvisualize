@@ -12,7 +12,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install and configure Poetry
-        uses: snok/install-poetry@v1.1.1
+        uses: snok/install-poetry@v1.1.10
         with:
           virtualenvs-create: false
       - name: Build dists
