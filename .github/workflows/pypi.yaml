@@ -17,4 +17,4 @@ jobs:
           version: 1.1.10
           virtualenvs-create: true
       - name: Pypi Publish
-        run: poetry publish --build --username __token__ --password ${{secrets.pypi_password}}
+        run: poetry publish --build --username ${{secrets.PYPI_USER}} --password ${{secrets.PYPI_PASSWORD}}
