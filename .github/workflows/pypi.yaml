@@ -16,10 +16,5 @@ jobs:
         with:
           version: 1.1.10
           virtualenvs-create: true
-      - name: Build dists
-        run: poetry build
       - name: Pypi Publish
-        uses: pypa/gh-action-pypi-publish@master
-        with:
-          user: __token__
-          password: ${{ secrets.pypi_password }}
+        run: poetry publish --build --username __token__ --password ${{secrets.pypi_password}}
